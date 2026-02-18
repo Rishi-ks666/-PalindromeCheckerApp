@@ -1,11 +1,6 @@
 
 public class PalindromeCheckerApp {
 
-    /**
-     * Application entry point for UC2.
-     *
-     * @param args Command-line arguments
-     */
     public static void main(String[] args) {
         // Step 1: Predefined string to check
         String input = "madam";
