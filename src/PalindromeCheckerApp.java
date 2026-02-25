@@ -1,31 +1,31 @@
-
-public class PalindromeCheckerApp {
+public class UseCase11PalindromeCheckerApp {
 
     public static void main(String[] args) {
-        String input = "A man a plan a canal Panama";
+        PalindromeService service = new PalindromeService();
+        String testInput = "radar";
+        boolean result = service.checkPalindrome(testInput);
+        System.out.println("Is '" + testInput + "' a palindrome? " + result);
+    }
+}
 
-        // Step 1: Preprocessing/Normalization
-        // Remove all non-alphanumeric characters and convert to lowercase
-        String normalized = input.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
+class PalindromeService {
 
-        boolean isPalindrome = true;
+    public boolean checkPalindrome(String input) {
+        if (input == null) {
+            return false;
+        }
 
-        // Step 2: Compare characters from both ends
-        for (int i = 0; i < normalized.length() / 2; i++) {
-            // Compare symmetric characters
-            if (normalized.charAt(i) != normalized.charAt(normalized.length() - 1 - i)) {
-                isPalindrome = false;
-                break;
+        int start = 0;
+        int end = input.length() - 1;
+
+        while (start < end) {
+            if (input.charAt(start) != input.charAt(end)) {
+                return false;
             }
+            start++;
+            end--;
         }
 
-        // Step 3: Display results
-        System.out.println("Original: " + input);
-        System.out.println("Normalized: " + normalized);
-        if (isPalindrome) {
-            System.out.println("Result: The string is a logical palindrome.");
-        } else {
-            System.out.println("Result: The string is NOT a palindrome.");
-        }
+        return true;
     }
 }
