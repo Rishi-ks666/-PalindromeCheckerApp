@@ -1,6 +1,6 @@
 import java.util.Stack;
 
-public class UseCase12PalindromeCheckerApp {
+public class PalindromeCheckerApp {
     public static void main(String[] args) {
         PalindromeStrategy strategy = new StackStrategy();
         String testInput = "racecar";
